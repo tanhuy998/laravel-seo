@@ -7,10 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     //
-
     public function Products() {
-        $ordered_product = $this->hasMany('App\OrderedProduct');
-
-        
+        return $this->belongsToMany('App\Product','ordered_products','order_id','product_id');
     }
 }
