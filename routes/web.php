@@ -13,32 +13,28 @@
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
-Route::get('/shop', function() {
-    $products = App\Product::All();
-
-    return $products;
-});
+Route::get('/shop/{category}', 'ShopController@ViewCategory')->name('shop');
 
 Route::get('/product/{id}', function() {
 
-});
+})->name('product');
 
 Route::get('/checkout', function () {
+    $product = App\Product::find(1);
 
-}); 
+    return $product->images->first()->path;
+})->name('checkout'); 
 
 Route::get('/contact', function() {
 
-});
+})->name('contact');
 
 Route::get('/about', function() {
     return view('master');
-});
+})->name('about');
 
 Route::get('/admin', function() {
 
-});
-
-
+})->name('admin');
