@@ -83,18 +83,17 @@
                 </div> 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">TRANG CHỦ</a></li>
-                        <li >
+                        <li class="active"><a href="{{ route('home') }}">TRANG CHỦ</a></li>
+                        <li>
                             <div class="dropdown">
                                 <button class="dropbtn">SẢN PHẨM</button>
                                 <div class="dropdown-content">
-                                  <a href="shop-ao.html">ÁO</a>
-                                  <a href="shop-quan.html">QUẦN</a>
-                                  <a href="shop-giay.html">GIÀY DÉP</a>
+                                    @foreach( $category_list as $category)
+                                  <a href="{{ route('shop', ['category' => $category->slug]) }}">{{ $category->name }}</a>
+                                    @endforeach
                                 </div>
                             </div>
                         </li>
-                        <li><a href="#">Single product</a></li>
                         <li><a href="cart.html">Giỏ hàng</a></li>
                         <li><a href="checkout.html">Thanh toán</a></li>
                         <!-- <li><a href="#">Category</a></li> -->

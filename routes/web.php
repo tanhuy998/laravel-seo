@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', 'HomeController@ViewHome')->name('home');
 
 Route::get('/shop/{category}', 'ShopController@ViewCategory')->name('shop');
 
