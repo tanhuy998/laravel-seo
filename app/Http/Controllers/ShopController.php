@@ -6,25 +6,23 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App;
 
-class ShopController extends Controller
+class ShopController extends MasterController
 {
     //  
-    private $category_list;
-
-    public function __construct() {
-        $this->category_list = App\Category::all();
-    }
 
     public function ViewCategory($category) {
         $category = App\Category::where('slug', '=', $category)->firstOrFail();
 
         if ($category) {
+            $master_data = $this->GetMasterPageData();
 
-            $data = [
-                'category_list' => $this->category_list,
+            $data1 = [
+                'page' => 2,
                 'category' => $category->name,
                 'products' => $category->products,
             ];
+
+            $data = array_merge($data1, $master_data);
 
             return view('shop')->with($data);
         }

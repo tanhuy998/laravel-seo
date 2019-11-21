@@ -83,8 +83,8 @@
                 </div> 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="{{ route('home') }}">TRANG CHỦ</a></li>
-                        <li>
+                        <li {{ ($page == 1)? 'class=active': '' }}><a href="{{ route('home') }}">TRANG CHỦ</a></li>
+                        <li {{ ($page == 2)? 'class=active': '' }}>
                             <div class="dropdown">
                                 <button class="dropbtn">SẢN PHẨM</button>
                                 <div class="dropdown-content">
@@ -94,8 +94,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li><a href="cart.html">Giỏ hàng</a></li>
-                        <li><a href="checkout.html">Thanh toán</a></li>
+                        <li {{ ($page == 3)? 'class=active': '' }}><a href="cart.html">Giỏ hàng</a></li>
+                        <li {{ ($page == 4)? 'class=active': '' }}><a href="checkout.html">Thanh toán</a></li>
                         <!-- <li><a href="#">Category</a></li> -->
                         <!-- <li><a href="#">Others</a></li> -->
                         <li>
