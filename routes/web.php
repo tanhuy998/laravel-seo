@@ -15,15 +15,17 @@ Route::get('/', 'HomeController@ViewHome')->name('home');
 
 Route::get('/shop/{category}', 'ShopController@ViewCategory')->name('shop');
 
-Route::get('/product/{id}', function() {
-
-})->name('product');
+Route::get('/product/{id}', 'SingleProductController@Render')->name('product');
 
 Route::get('/checkout', function () {
     $product = App\Product::find(1);
 
     return $product->images->first()->path;
 })->name('checkout'); 
+
+Route::get('/search/{name}', function ($name) {
+    return $name;
+})->name('search');
 
 Route::get('/contact', function() {
 

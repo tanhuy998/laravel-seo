@@ -19,6 +19,8 @@
         <div class="zigzag-bottom"></div>
         <div class="container">
             <div class="row">
+                @include('layouts\leftSideBar')
+
                 @foreach ($products as $product) 
                 <div class="col-md-3 col-sm-6">
                     <div class="single-shop-product">
