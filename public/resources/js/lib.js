@@ -1,8 +1,8 @@
 
 function SetCookie(cname, cvalue, exdays,cpath) {
-    var d = new Date();
+    let d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+ d.toUTCString();
+    let expires = "expires="+ d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/" + cpath;
 }
 
@@ -18,11 +18,11 @@ function DeleteCartProduct(cName) {
 
 
 function GetCookieValue(cname) {
-    //var name = cname + "=";
-    //var decodedCookie = decodeURIComponent(document.cookie);
-    //var ca = decodedCookie.split(';');
-    // for(var i = 0; i <ca.length; i++) {
-    //     var c = ca[i];
+    //let name = cname + "=";
+    //let decodedCookie = decodeURIComponent(document.cookie);
+    //let ca = decodedCookie.split(';');
+    // for(let i = 0; i <ca.length; i++) {
+    //     let c = ca[i];
     //     while (c.charAt(0) == ' ') {
     //         c = c.substring(1);
     //     }
@@ -31,75 +31,112 @@ function GetCookieValue(cname) {
     //     }
     // }
 
-    var cookie = document.cookie;
-    var list = cookie.split("; ");
+    let cookie = document.cookie;
+    let list = cookie.split("; ");
 
     for (i = 0; i < list.length; ++i) {
-        var nameValue = list[i].split("=");
+        let nameValue = list[i].split("=");
         if (nameValue[0] == cname) return nameValue[1];
     }
-    return "";
+    return null;
+}
+
+function AddProduct(_id, _quantity) {
+    let cart = GetCookieValue(cart);
+
+    if (cart == null) {
+
+        let product_list = [];
+
+        product_list.push( {id: _id, qty: _quantity} );
+
+        let val = JSON.stringify(product_list);
+
+        SetCookie('cart', val, 1,  '');
+    }
+    else {
+        let product_list = JSON.parse(cart);
+
+        // check if this product has add to shop yet
+        let flag = false;
+        for (let i = 0; i < product_list.length; ++i) {
+            if (product_list[i].id == _id) {
+                product_list[i].qty += _quantity;
+                flag = true;
+                break;
+            }
+        }
+
+        if (flag == false) {
+            product_list.push({id: _id, qty: _quantity});
+        }
+
+        let val = JSON.stringify(product_list);
+
+        SetCookie('cart', val, 1, '');
+    }
+
 }
 
 function AddCartProductCookie(pName, pPrice, pQuantity, img, path) {
-    var total = pQuantity*pPrice;
-    var pValue = pPrice + "-" + pQuantity + "-" + total.toString() + "-" + img + "-" +path;    
+    let total = pQuantity*pPrice;
+    let pValue = pPrice + "-" + pQuantity + "-" + total.toString() + "-" + img + "-" +path;    
     console.log("setcookie");
     SetCookie(pName, pValue, 1, "");
     SetShopingCart();
 }
 
 function PrintProductsToCartTable() {
-    var cookie = document.cookie;
-    var productsList = cookie.split("; ");
+    let cookie = document.cookie;
+    let productsList = cookie.split("; ");
     console.log(document.cookie);
-    //var cartTotal = 0;
-    //var productsCount = productsList.length - 1;
+    //let cartTotal = 0;
+    //let productsCount = productsList.length - 1;
 
     for ( i = 0; i < productsList.length; ++i) {
-        var nameValue = productsList[i].split('=');
-        var name = nameValue[0];
+        let nameValue = productsList[i].split('=');
+        let name = nameValue[0];
 
         if (name == 'carttotal' || name == 'ship') { continue;}
         
-        var value = nameValue[1].split("-");
+        let value = nameValue[1].split("-");
         console.log(name);
 
         // get all attribute of product
-        var price = value[0];
-        var quantity = value[1];
-        var total = value[2];
-        var img = value[3];
-        var path = value[4];
+        let price = value[0];
+        let quantity = value[1];
+        let total = value[2];
+        let img = value[3];
+        let path = value[4];
         SetHTMLTag(name,price,quantity,img,total,path);
 
         //cartTotal += parseInt(total);
         //console.log(cartTotal);  
     }
 
-    //var cartTotalCValue = cartTotal.toString() + "-" + productsCount.toString();
+    //let cartTotalCValue = cartTotal.toString() + "-" + productsCount.toString();
     //SetCookie("carttotal",cartTotalCValue,1,"");
 }
 
 function SetShopingCart() {
-    var cookie = document.cookie;
-    var productsList = cookie.split("; ");
+    let cookie = document.cookie;
+    let productsList = cookie.split("; ");
     console.log(document.cookie);
-    var cartTotal = 0;
-    var productsCount = 0; //= productsList.length - 2;
+    let cartTotal = 0;
+    let productsCount = 0; //= productsList.length - 2;
 
     for ( i = 0; i < productsList.length; ++i) {
-        var nameValue = productsList[i].split('=');
-        var name = nameValue[0];
+        let nameValue = productsList[i].split('=');
+        let name = nameValue[0];
 
         if (name == 'carttotal' || name == 'ship') { continue;}
         
-        var value = nameValue[1].split("-");
+        let value = nameValue[1].split("-");
         console.log(name);
 
         // get all attribute of product
-        var price = value[0];
-        var total = value[2];
+        let price = value[0];
+        let total = value[2];
 
         cartTotal += parseInt(total);
         productsCount += 1;
@@ -107,56 +144,56 @@ function SetShopingCart() {
     }
 
     console.log(cartTotal);
-    var cartTotalCValue = cartTotal.toString() + "-" + productsCount.toString();
+    let cartTotalCValue = cartTotal.toString() + "-" + productsCount.toString();
     SetCookie("carttotal",cartTotalCValue,1,"");
 
     CartTotal();
 }
 
 function PrintCheckout() {
-    var cookie = document.cookie;
-    var productsList = cookie.split("; ");
+    let cookie = document.cookie;
+    let productsList = cookie.split("; ");
     console.log(document.cookie);
-    //var cartTotal = 0;
-    //var productsCount = productsList.length - 1;
+    //let cartTotal = 0;
+    //let productsCount = productsList.length - 1;
 
     for ( i = 0; i < productsList.length; ++i) {
-        var nameValue = productsList[i].split('=');
-        var name = nameValue[0];
+        let nameValue = productsList[i].split('=');
+        let name = nameValue[0];
 
         if (name == 'carttotal' || name == 'ship') { continue;}
         
-        var value = nameValue[1].split("-");
+        let value = nameValue[1].split("-");
         console.log(name);
 
         // get all attribute of product
-        var price = value[0];
-        var quantity = value[1];
-        var total = value[2];
-        //var img = value[3];
-        //var path = value[4];
+        let price = value[0];
+        let quantity = value[1];
+        let total = value[2];
+        //let img = value[3];
+        //let path = value[4];
         SetCheckoutTag(name,total,quantity);
 
         //cartTotal += parseInt(total);
         //console.log(cartTotal);  
     }
 
-    var ship = GetCookieValue("ship");
+    let ship = GetCookieValue("ship");
     document.getElementById("#ship").innerHTML = ship;
 
-    var cookieTotal = GetCookieValue("carttotal");
-    var value = cookieTotal.split("-");
-    var cartTotal = value[0];
+    let cookieTotal = GetCookieValue("carttotal");
+    let value = cookieTotal.split("-");
+    let cartTotal = value[0];
     document.getElementById("#sub").innerHTML = cartTotal;
-    var totalWithShip = parseInt(cartTotal) + parseInt(ship);
+    let totalWithShip = parseInt(cartTotal) + parseInt(ship);
     document.getElementById("#total").innerHTML = totalWithShip;
 }
 
 function CartTotal() {
     
-    var cartValue = GetCookieValue("carttotal").split("-");
-    var total = cartValue[0];
-    var productCount = cartValue[1];
+    let cartValue = GetCookieValue("carttotal").split("-");
+    let total = cartValue[0];
+    let productCount = cartValue[1];
     console.log(total);
 
     document.getElementById("#amount").innerHTML = total;
@@ -164,9 +201,9 @@ function CartTotal() {
 }
 
 function UpdateCart() {
-    var cartValue = GetCookieValue("carttotal").split("-");
-    var total = cartValue[0];
-    var productCount = cartValue[1];
+    let cartValue = GetCookieValue("carttotal").split("-");
+    let total = cartValue[0];
+    let productCount = cartValue[1];
     console.log(total);
 
     document.getElementById("#a1").innerHTML += total;
@@ -175,51 +212,51 @@ function UpdateCart() {
 SetCookie("ship","0",1,"");
 
 function TotalWithShip() {
-    var strShip = document.getElementById("#s").innerText;
-    var shipCost = parseInt(strShip);
+    let strShip = document.getElementById("#s").innerText;
+    let shipCost = parseInt(strShip);
     console.log(shipCost);
-    var strTotal = document.getElementById("#a1").innerText;
-   //var total = 
-    var total = shipCost + parseInt(strTotal);
+    let strTotal = document.getElementById("#a1").innerText;
+   //let total = 
+    let total = shipCost + parseInt(strTotal);
     console.log("");
     document.getElementById("#a2").innerHTML += total;
 }
 
 function SetHTMLTag(className,price,quantity,img,total,path) {
     console.log("sethtml");
-    var id = GetHashCode(className);
+    let id = GetHashCode(className);
     console.log(id);
-    var cookie = "\'" + className + "\'" + "," + price + "," + "GetCartQuantity(\'" + className + "\')" + "," + "\'" + img + "\'" + "," + "\'" + path + "\'";
-    var tag =  "<tr class=" + "\"" + className + "\"" + "><td class=\"product-remove\" onclick=\"\"><a title=\"Remove this item\" class=\"remove\"  href=\"#\" onclick=\"DeleteCartProduct(\'" + className +"\');window.location.reload();\">×</a> </td> <td class=\"product-thumbnail\"><a href=\"#\"><img width=\"145\" height=\"145\" alt=\"poster_1_up\" class=\"shop_thumbnail\" src=\"" + img +"\"></a></td><td class=\"product-name\"><a href=\"" + path + "\">" + className +"</a> </td><td class=\"product-price\"><span class=\"amount\">£"+ price +"</span> </td><td class=\"product-quantity\"><div class=\"quantity buttons_added\"><input id=\"#" + id.toString() +"\" onchange=\"AddCartProductCookie(" + cookie + ")\" type=\"number\" size=\"4\" class=\"input-text qty text\" title=\"Qty\" value=\"" + quantity + "\" min=\"0\" step=0\"1\"></div></td><td class=\"product-subtotal\"><span class=\"amount\">£"+ total +"</span></td></tr>";
+    let cookie = "\'" + className + "\'" + "," + price + "," + "GetCartQuantity(\'" + className + "\')" + "," + "\'" + img + "\'" + "," + "\'" + path + "\'";
+    let tag =  "<tr class=" + "\"" + className + "\"" + "><td class=\"product-remove\" onclick=\"\"><a title=\"Remove this item\" class=\"remove\"  href=\"#\" onclick=\"DeleteCartProduct(\'" + className +"\');window.location.reload();\">×</a> </td> <td class=\"product-thumbnail\"><a href=\"#\"><img width=\"145\" height=\"145\" alt=\"poster_1_up\" class=\"shop_thumbnail\" src=\"" + img +"\"></a></td><td class=\"product-name\"><a href=\"" + path + "\">" + className +"</a> </td><td class=\"product-price\"><span class=\"amount\">£"+ price +"</span> </td><td class=\"product-quantity\"><div class=\"quantity buttons_added\"><input id=\"#" + id.toString() +"\" onchange=\"AddCartProductCookie(" + cookie + ")\" type=\"number\" size=\"4\" class=\"input-text qty text\" title=\"Qty\" value=\"" + quantity + "\" min=\"0\" step=0\"1\"></div></td><td class=\"product-subtotal\"><span class=\"amount\">£"+ total +"</span></td></tr>";
     
-    //var html = document.getElementById("product-list");
+    //let html = document.getElementById("product-list");
     //html.insertBefore(html, html.childNodes[0]);
     document.getElementById("cart-list").innerHTML += tag;
 }
 
 function SetCheckoutTag(className,totalPrice,quantity) {
-    var tag = "<tr class=\"cart_item\"> <td class=\"product-name\">" + className + "<strong class=\"product-quantity\">×" + quantity + "</strong> </td> <td class=\"product-total\"> <span class=\"amount\">$" + totalPrice + "</span> </td> </tr>";
+    let tag = "<tr class=\"cart_item\"> <td class=\"product-name\">" + className + "<strong class=\"product-quantity\">×" + quantity + "</strong> </td> <td class=\"product-total\"> <span class=\"amount\">$" + totalPrice + "</span> </td> </tr>";
     document.getElementById("#cart-item").innerHTML += tag;
 }
 
 
 
 function GetCartQuantity(className) {
-    //var id = "#" + className;
-    var id = "#" + GetHashCode(className).toString();
-    var val = document.getElementById(id).value;
+    //let id = "#" + className;
+    let id = "#" + GetHashCode(className).toString();
+    let val = document.getElementById(id).value;
     return val;
 }
 
 function GetQuantity(id) {
-    var val = document.getElementById(id).value;
+    let val = document.getElementById(id).value;
     return val;
 }
 
 function GetHashCode(str) {
-    var hash = 0;
-    for (var i = 0; i < str.length; i++) {
-        var character = str.charCodeAt(i);
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+        let character = str.charCodeAt(i);
         hash = ((hash<<5)-hash)+character;
         hash = hash & hash; // Convert to 32bit integer
     }
@@ -233,7 +270,7 @@ toggle between hiding and showing the dropdown content */
 
 function SearchProducts() {
 
-    var input, filter, ul, li, a, i;
+    let input, filter, ul, li, a, i;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
     ul = document.getElementById("myUL");

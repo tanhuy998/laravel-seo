@@ -41,7 +41,7 @@
                                         <div class="quantity">
                                             <input id="#quantity" type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
                                         </div>
-                                        <button onclick="AddCartProductCookie('Áo cộc tay-dài GUCCI','1300000',GetQuantity('#quantity'),'img/ao3.jpg','3.html')" class="add_to_cart_button" type="button">Add to cart</button>
+                                        <button onclick="AddProduct({{ $product->id }},GetQuantity('#quantity'))" class="add_to_cart_button" type="button">Add to cart</button>
                                     </form>  
                                     
                                     <div class="product-inner-category">
