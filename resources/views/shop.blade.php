@@ -33,7 +33,7 @@
                         </div>  
                         
                         <div class="product-option-shop">
-                            <a class="add_to_cart_button" onclick="AddCartProductCookie('Sơ mi kẻ sọc-họa tiết ong GUCCI','1400000',1,'img/ao1.png','1.html')" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" href="/canvas/shop/?add-to-cart=70">Add to cart</a>
+                            <a class="add_to_cart_button" onclick="AddProduct({{ $product->id }}, 1)" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow">Add to cart</a>
                         </div>                       
                     </div>
                 </div>

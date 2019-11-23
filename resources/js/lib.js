@@ -18,18 +18,6 @@ function DeleteCartProduct(cName) {
 
 
 function GetCookieValue(cname) {
-    //var name = cname + "=";
-    //var decodedCookie = decodeURIComponent(document.cookie);
-    //var ca = decodedCookie.split(';');
-    // for(var i = 0; i <ca.length; i++) {
-    //     var c = ca[i];
-    //     while (c.charAt(0) == ' ') {
-    //         c = c.substring(1);
-    //     }
-    //     if (c.indexOf(name) == 0) {
-    //         return c.substring(name.length, c.length);
-    //     }
-    // }
 
     var cookie = document.cookie;
     var list = cookie.split("; ");
@@ -79,6 +67,10 @@ function PrintProductsToCartTable() {
 
     //var cartTotalCValue = cartTotal.toString() + "-" + productsCount.toString();
     //SetCookie("carttotal",cartTotalCValue,1,"");
+}
+
+function boot() {
+    
 }
 
 function SetShopingCart() {

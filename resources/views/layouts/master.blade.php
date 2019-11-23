@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="{{ asset('/resources/css/style.css')}}">
     <link rel="stylesheet" href="{{ asset('/resources/css/responsive.css')}}">
     <link rel="stylesheet" href="{{ asset('/resources/css/dropstyle.css') }}">
-    <script type="text/javascript" src="{{ asset('/resoures/js/lib.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/resources/js/lib.js') }}"></script>
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -31,7 +31,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body onload="Update()">
    
     <div class="header-area">
         <div class="container">
@@ -40,9 +40,6 @@
                     <div class="user-menu">
                         <ul>
                             <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
-                            <!-- <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li> -->
-                            <li><a href="cart.html"><i class="fa fa-user"></i> My Cart</a></li>
-                            <li><a href="checkout.html"><i class="fa fa-user"></i> Checkout</a></li>
                             <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
                         </ul>
                     </div>
@@ -63,7 +60,7 @@
                 
                 <div class="col-sm-6">
                     <div class="shopping-item">
-                        <a href="cart.html">Cart<!-- - <span class="cart-amunt">$800</span>--><i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
+                        <a href="cart.html" id="cart-notification">Cart<!-- - <span class="cart-amunt">$800</span>--><i class="fa fa-shopping-cart"></i> </a>
                     </div>
                 </div>
             </div>
@@ -204,13 +201,13 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     
     <!-- jQuery sticky menu -->
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.sticky.js"></script>
+    <script src="{{ asset('/resources/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('/resources/js/jquery.sticky.js') }}"></script>
     
     <!-- jQuery easing -->
-    <script src="js/jquery.easing.1.3.min.js"></script>
+    <script src="{{ asset('/resources/js/jquery.easing.1.3.min.js') }}"></script>
     
     <!-- Main Script -->
-    <script src="js/main.js"></script>
+    <script src="{{ asset('/resources/js/main.js') }}"></script>
   </body>
 </html>

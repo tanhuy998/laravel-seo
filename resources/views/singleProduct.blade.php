@@ -1,11 +1,14 @@
 @extends('layouts.master')
 
 @section('content')
+
+
 <div class="single-product-area">
+
     <div class="zigzag-bottom"></div>
         <div class="container">
             <div class="row">
-                    
+            @include('layouts\leftSideBar')
                 <div class="col-md-8">
                     <div class="product-content-right">
                         <!-- <div class="product-breadcroumb">
@@ -18,7 +21,7 @@
                             <div class="col-sm-6">
                                 <div class="product-images">
                                     <div class="product-main-img">
-                                        <img src="{{ asset('resources/img/'.$product->images->first()->path) }}" alt={{ $product->slug }}>
+                                        <img src="{{ asset('resources/img/'. (($product->images->first())? $product->images->first()->path : '' )) }}" alt={{ $product->slug }}>
                                     </div>
                                     
                                     <div class="product-gallery">

@@ -41,8 +41,40 @@ function GetCookieValue(cname) {
     return null;
 }
 
+//function that update for the hole current document 
+function Update() {
+    RenderCartNotification();
+}
+
+function RenderCartNotification() {
+    let cart = GetCart();
+
+    noti_dot = (cart.count != 0)?'<span class="product-count">'+ cart.count +'</span>' : '';
+
+    document.getElementById('cart-notification').innerHTML += noti_dot;
+}
+
+function GetCart() {
+    let cart = GetCookieValue('cart');
+
+    let cart_list = JSON.parse(cart);
+    
+    let total_products = 0;
+    
+    for (let i = 0; i < cart_list.length; ++i) {
+        total_products += cart_list[i].qty;
+    }
+
+    cart_list.count = total_products;
+
+    return cart_list;
+}
+
 function AddProduct(_id, _quantity) {
-    let cart = GetCookieValue(cart);
+    let cart = GetCookieValue('cart');
+
+    _quantity = parseInt(_quantity);
+    _id = parseInt(_id);
 
     if (cart == null) {
 
@@ -76,6 +108,7 @@ function AddProduct(_id, _quantity) {
         SetCookie('cart', val, 1, '');
     }
 
+    Update();
 }
 
 function AddCartProductCookie(pName, pPrice, pQuantity, img, path) {
