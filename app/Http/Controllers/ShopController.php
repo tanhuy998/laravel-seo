@@ -19,7 +19,7 @@ class ShopController extends MasterController
             $data1 = [
                 'page' => 2,
                 'category' => $category->name,
-                'products' => $category->products,
+                'products' => $category->products()->paginate(2),
             ];
 
             $data = array_merge($data1, $master_data);
