@@ -1,3 +1,18 @@
+function GetMetaByName(name) {
+    const metas = document.getElementsByTagName('meta');
+
+    for (let i = 0; i< metas.length; ++i) {
+        if (metas[i].getAttribute('name') == name) {
+            return metas[i].getAttribute('content');
+        }
+    }
+
+    return null;
+}
+
+function GetFQDN() {
+    return GetMetaByName('domain');
+}
 
 function SetCookie(cname, cvalue, exdays,cpath) {
     let d = new Date();
@@ -44,6 +59,12 @@ function GetCookieValue(cname) {
 //function that update for the hole current document 
 function Update() {
     RenderCartNotification();
+}
+
+function RenderCart() {
+    let cart = GetCart();
+
+
 }
 
 function RenderCartNotification() {

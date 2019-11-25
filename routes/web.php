@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Cookie;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,7 +28,7 @@ Route::get('/search/{name}', function ($name) {
 })->name('search');
 
 Route::get('/contact', function() {
-
+    
 })->name('contact');
 
 Route::get('/about', function() {
