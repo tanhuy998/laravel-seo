@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Cookie;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+*///////..///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Route::get('/', 'HomeController@ViewHome')->name('home');
 
@@ -26,6 +26,8 @@ Route::get('/checkout', function () {
 Route::get('/search/{name}', function ($name) {
     return $name;
 })->name('search');
+
+Route::get('/cart', 'CartController@Render')->name('cart');
 
 Route::get('/contact', function() {
     
