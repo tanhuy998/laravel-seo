@@ -93,7 +93,7 @@ function GetCart() {
 
 function AddProduct(_id, _quantity) {
     let cart = GetCookieValue('cart');
-
+    //console.log(_quantity);
     _quantity = parseInt(_quantity);
     _id = parseInt(_id);
 
@@ -115,6 +115,11 @@ function AddProduct(_id, _quantity) {
         for (let i = 0; i < product_list.length; ++i) {
             if (product_list[i].id == _id) {
                 product_list[i].qty += _quantity;
+
+                if (product_list[i].qty <= 0) {
+                    product_list.splice(i,1);
+                    break;
+                }
                 flag = true;
                 break;
             }
@@ -122,6 +127,9 @@ function AddProduct(_id, _quantity) {
 
         if (flag == false) {
             product_list.push({id: _id, qty: _quantity});
+        }
+        else {
+
         }
 
         let val = JSON.stringify(product_list);
@@ -304,7 +312,7 @@ function GetCartQuantity(className) {
 
 function GetQuantity(id) {
     let val = document.getElementById(id).value;
-    return val;
+    return parseInt(val);
 }
 
 function GetHashCode(str) {

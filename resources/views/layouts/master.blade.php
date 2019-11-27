@@ -92,8 +92,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li {{ ($page == 3)? 'class=active': '' }}><a href="cart.html">Giỏ hàng</a></li>
-                        <li {{ ($page == 4)? 'class=active': '' }}><a href="checkout.html">Thanh toán</a></li>
+                        <li {{ ($page == 3)? 'class=active': '' }}><a href="{{ route('cart') }}">Giỏ hàng</a></li>
+                        <li {{ ($page == 4)? 'class=active': '' }}><a href="{{ route('checkout') }}">Thanh toán</a></li>
                         <!-- <li><a href="#">Category</a></li> -->
                         <!-- <li><a href="#">Others</a></li> -->
                         <li>
