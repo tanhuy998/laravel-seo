@@ -5,7 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="domain" content="{{ route('home') }}">
-    <title>eElectronics - HTML eCommerce Template</title>
+
+    <meta property="og:url"                    content="{{route('home')}}"/>
+    <meta property="og:type"                   content="website"/>
+    <meta property="og:title"         content="eFashion - Thời trang" />
+    <meta property="og:description"   content="Giao Hàng Nhanh Miễn Phí ✓ Bảo Hành 365 Ngày ✓ 7 Ngày Đổi Hàng Miễn Phí. Mua Online Giá Rẻ Bất Ngờ." />
+    <meta property="og:image"         content="" />
+
+    <meta name="description" content="Giao Hàng Nhanh Miễn Phí ✓ Bảo Hành 365 Ngày ✓ 7 Ngày Đổi Hàng Miễn Phí. Mua Online Giá Rẻ Bất Ngờ." />
+    <meta name="robots" content="notranslate">
+
+    <meta name="geo.region" content="VN" />
+    <meta name="geo.placename" content="Ward 3" />
+    <meta name="geo.position" content="10.760788;106.682337" />
+    <meta name="ICBM" content="10.760788, 106.682337" />
+
+    <title>eFashion - Thời trang</title>
     
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
