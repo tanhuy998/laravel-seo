@@ -41,7 +41,7 @@
                                     @foreach( $products as $product)
                                     
                                         <tr id="" class="cart_item">
-                                            <td class="product-remove" onclick="AddProduct({{$product->id}},-($product->qty)); window.location.reload">
+                                            <td class="product-remove" onclick="AddProduct({{$product->id}},-GetCartProduct({{$product->id}}).qty); window.location.reload">
                                                 <a title="Remove this item" class="remove" href="">×</a> 
                                             </td>
             
@@ -63,7 +63,7 @@
     
                                             <td class="product-quantity">
                                                 <div class="quantity buttons_added">
-                                                    <input id="{{ $product->id }}" type="number" size="4" class="input-text qty text" title="Qty" value="{{ $product->qty }}" min="1" onchange="AddProduct({{$product->id}}, GetQuantity({{$product->id}}) - $product->qty)" step="1">
+                                                    <input id="{{ $product->id }}" type="number" size="4" class="input-text qty text" title="Qty" value="{{ $product->qty }}" min="1" onchange="AddProduct({{$product->id}}, GetQuantity({{$product->id}}) - GetCartProduct({{$product->id}}).qty   )" step="1">
                                                 </div>
                                             </td>
                                     

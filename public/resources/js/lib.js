@@ -91,6 +91,15 @@ function GetCart() {
     return cart_list;
 }
 
+function GetCartProduct(_id) {
+    _id = parseInt(_id);
+    let cart = GetCart();
+
+    return cart.reduce((ret, currentProduct) => {
+        if (currentProduct.id == _id) return val;
+    });
+}
+
 function AddProduct(_id, _quantity) {
     let cart = GetCookieValue('cart');
     //console.log(_quantity);
@@ -110,15 +119,15 @@ function AddProduct(_id, _quantity) {
     else {
         let product_list = JSON.parse(cart);
 
-        // check if this product has add to shop yet
-        let flag = false;
+        let trace_indexs = [];  //to trace the index of product with qty less than or equal 0
+
+        let flag = false;   // check if this product has add to shop yet
         for (let i = 0; i < product_list.length; ++i) {
             if (product_list[i].id == _id) {
                 product_list[i].qty += _quantity;
 
                 if (product_list[i].qty <= 0) {
-                    product_list.splice(i,1);
-                    break;
+                    trace_indexs.push(i);
                 }
                 flag = true;
                 break;
@@ -128,9 +137,11 @@ function AddProduct(_id, _quantity) {
         if (flag == false) {
             product_list.push({id: _id, qty: _quantity});
         }
-        else {
-
-        }
+        
+        // delete the product with qty less than or equal 0 from the cart
+        trace_indexs.forEach((indexVal) => {
+            product_list.splice(indexVal,1);
+        });
 
         let val = JSON.stringify(product_list);
 
