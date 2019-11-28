@@ -93,7 +93,7 @@
 
                                             <tr class="cart-subtotal">
                                                 <th>Cart Subtotal</th>
-                                                <td><span class="amount">$</span><span id="#sub"  class="amount"></span>
+                                                <td><span class="amount">{{$total}} $</span><span id="#sub"  class="amount"></span>
                                                 </td>
                                             </tr>
 
@@ -109,7 +109,7 @@
 
                                             <tr class="order-total">
                                                 <th>Order Total</th>
-                                                <td><strong><span class="amount">$</span><span id="#total" class="amount">$</span></strong> </td>
+                                                <td><strong><span class="amount">{{ $total }} </span><span id="#total" class="amount">$</span></strong> </td>
                                             </tr>
 
                                         </tfoot>
@@ -119,7 +119,7 @@
                                     <div id="payment">
                                         <ul class="payment_methods methods">
                                             <li class="payment_method_cheque">
-                                                <input type="radio" data-order_button_text="" value="cheque" name="payment_method" class="input-radio" id="payment_method_cheque" onclick="RadioButtonCheck()">
+                                                <input type="radio" onclick="RadioButtonCheck()" data-order_button_text="" value="cheque" name="payment_method" class="input-radio" id="payment_method_cheque" onclick="RadioButtonCheck()">
                                                 <label for="payment_method_cheque">Cheque Payment </label>
                                                 <div style="display:none;" class="payment_box payment_method_cheque">
                                                     <p>Please send your cheque to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
@@ -127,23 +127,6 @@
                                             </li>
                                             <li class="payment_method_paypal">
                                                 <input type="radio" data-order_button_text="Proceed to PayPal" value="paypal" name="payment_method" class="input-radio" id="payment_method_paypal" onclick="RadioButtonCheck()">
-                                                <script>
-                                                    if (document.getElementById('payment_method_paypal').checked) {
-                                                        document.getElementById('paypal_button').style.visibility = 'visible';
-                                                    }
-                                                    else {
-                                                        document.getElementById('paypal_button').style.visibility = 'hidden';
-                                                    }
-
-                                                    function RadioButtonCheck() {
-                                                        if (document.getElementById('payment_method_paypal').checked) {
-                                                            document.getElementById('paypal_button').style.visibility = 'visible';
-                                                        }
-                                                        else {
-                                                            document.getElementById('paypal_button').style.visibility = 'hidden';
-                                                        }
-                                                    }
-                                                </script>
                                                 <label for="payment_method_paypal">PayPal <img alt="PayPal Acceptance Mark" src="https://www.paypalobjects.com/webstatic/mktg/Logo/AM_mc_vs_ms_ae_UK.png"><a title="What is PayPal?" onclick="javascript:window.open('https://www.paypal.com/gb/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;" class="about_paypal" href="https://www.paypal.com/gb/webapps/mpp/paypal-popup">What is PayPal?</a>
                                                 </label>
                                                 <div style="display:none;" class="payment_box payment_method_paypal">
@@ -155,13 +138,43 @@
                                             </li>
                                         </ul>
 
-                                        <div class="form-row place-order">
+                                        <div id="cheque_button" class="form-row place-order">
 
-                                            <input type="submit" data-value="Place order" value="Đặt hàng" id="place_order" name="woocommerce_checkout_place_order" class="button alt">
+                                            <input type="button" onclick="SubmitInput()" data-value="Place order" value="Đặt hàng" id="place_order" name="woocommerce_checkout_place_order" class="button alt">
 
 
                                         </div>
+                                        <script>
+                                                    if (document.getElementById('payment_method_paypal').checked) {
+                                                        document.getElementById('paypal_button').style.visibility = 'visible';
+                                                    }
+                                                    else {
+                                                        document.getElementById('paypal_button').style.visibility = 'hidden';
+                                                    }
 
+                                                    if (document.getElementById('payment_method_cheque').checked) {
+                                                        document.getElementById('cheque_button').style.visibility = 'visible';
+                                                    }
+                                                    else {
+                                                        document.getElementById('cheque_button').style.visibility = 'hidden';
+                                                    }
+
+                                                    function RadioButtonCheck() {
+                                                        if (document.getElementById('payment_method_paypal').checked) {
+                                                            document.getElementById('paypal_button').style.visibility = 'visible';
+                                                        }
+                                                        else {
+                                                            document.getElementById('paypal_button').style.visibility = 'hidden';
+                                                        }
+
+                                                        if (document.getElementById('payment_method_cheque').checked) {
+                                                            document.getElementById('cheque_button').style.visibility = 'visible';
+                                                        }
+                                                        else {
+                                                            document.getElementById('cheque_button').style.visibility = 'hidden';
+                                                        }
+                                                    }
+                                                </script>
                                         <div class="clear"></div>
 
                                     </div>

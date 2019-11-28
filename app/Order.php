@@ -11,6 +11,10 @@ class Order extends Model
         return $this->belongsToMany('App\Product','ordered_products','order_id','product_id');
     }
 
+    public function OrderedProducts() {
+        return $this->hasMany('App\OrderedProduct');
+    }
+
     public function Payment() {
         return $this->hasOne('App\Payment');
     }

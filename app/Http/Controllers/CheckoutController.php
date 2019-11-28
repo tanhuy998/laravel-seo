@@ -3,11 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 use App;
 
 class CheckoutController extends MasterController
 {
     //
+    public function MiddleCheck() {
+        if (!isset($_COOKIE['cart'])) {
+            return redirect()->back();
+        }
+        else return $this->Render();
+    }
 
     public function Render() {
 
@@ -49,7 +56,9 @@ class CheckoutController extends MasterController
 
         if (isset($_COOKIE['cart'])) {
             $cart_list = json_decode($_COOKIE['cart'], TRUE);
-            
+            //print_r($cart_list);
+
+            //return 0;
             $detail = $request->all();
 
             $order = new App\Order();
@@ -81,11 +90,17 @@ class CheckoutController extends MasterController
 
                     $ordered_product = new App\OrderedProduct();
 
-                    $ordered_product;
+                    $ordered_product->Order()->associate($order);
+                    $ordered_product->Product()->associate($product);
+                    $ordered_product->quantity = $product->qty;
+
+                    $ordered_product->save();
+
+                    
                 }
             }
         }
-
+        setcookie('cart','',time() - 3600, '/');
         return 0;
     }
 }

@@ -17,7 +17,7 @@ Route::get('/shop/{category}', 'ShopController@ViewCategory')->name('shop');
 
 Route::get('/product/{id}', 'SingleProductController@Render')->name('product');
 
-Route::get('/checkout', 'CheckoutController@Render')->name('checkout'); 
+Route::get('/checkout', 'CheckoutController@MiddleCheck')->name('checkout'); 
 
 Route::get('/search/{name}', function ($name) {
     return $name;
@@ -26,7 +26,7 @@ Route::get('/search/{name}', function ($name) {
 Route::get('/cart', 'CartController@Render')->name('cart');
 
 Route::get('/contact', function() {
-    
+    return Cookie::get('cart');
 })->name('contact');
 
 Route::get('/about', function() {
