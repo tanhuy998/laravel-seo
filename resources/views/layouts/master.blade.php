@@ -39,6 +39,18 @@
     <link rel="stylesheet" href="{{ asset('/resources/css/dropstyle.css') }}">
     <script type="text/javascript" src="{{ asset('/resources/js/lib.js') }}"></script>
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153492348-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-153492348-1');
+        
+    </script>
+
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
