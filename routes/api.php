@@ -18,3 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/place-order', 'CheckoutController@PlaceOrder')->name('place-order');
+
+Route::get('/rss/{category}.xml', 'RSSController@Feed')->name('rss-api');
