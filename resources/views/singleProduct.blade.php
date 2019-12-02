@@ -45,12 +45,16 @@
                                             <input id="#quantity" type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
                                         </div>
                                         <button onclick="AddProduct({{ $product->id }},GetQuantity('#quantity'))" class="add_to_cart_button" type="button">Add to cart</button>
+                                        
                                     </form>  
-                                    
+
+                                    @include('layouts.shareSDK')
+                                    @include('layouts.shareButton')
+
                                     <div class="product-inner-category">
                                         <p>Category: <a href={{ route('shop', ['category' => $product->category->slug]) }}> {{ $product->category->name }}</a>. Tags:  <a href="">Black</a>, <a href="">sale</a>, <a href="">Cổ điển</a>. </p>
                                     </div> 
-                                    
+
                                     <div role="tabpanel">
                                         <ul class="product-tab" role="tablist">
                                             <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
