@@ -8,6 +8,8 @@ use App;
 class Payment extends Model
 {
     //
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
+
     public function Order() {
         return $this->belongsTo('App\Order');
     }

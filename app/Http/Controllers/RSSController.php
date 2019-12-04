@@ -14,7 +14,7 @@ class RSSController extends MasterController
         $category = App\Category::where('slug', '=', $_category)->first();
 
         if ($category){
-            $products = $category->Products;
+            $products = $category->Products->take(10);
 
             $data = [
                 'category' => $category,

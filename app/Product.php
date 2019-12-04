@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     //
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
+
     public function Category() {
         return $this->belongsTo('App\Category');
     }
