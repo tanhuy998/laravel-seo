@@ -35,3 +35,7 @@ Route::get('/about', function() {
 
 
 Route::get('/rss', 'RSSController@RenderView')->name('rss-view');
+
+Route::get('/privacy-policy', function () {
+    return view('policy');
+});

@@ -140,7 +140,8 @@
     </div> <!-- End mainmenu area -->
     
     @yield('content')
-
+    
+    
     <div class="footer-top-area">
         <div class="zigzag-bottom"></div>
         <div class="container">
@@ -237,5 +238,6 @@
     
     <!-- Main Script -->
     <script src="{{ asset('/resources/js/main.js') }}"></script>
+    @include('layouts.fbMessenger')
   </body>
 </html>
