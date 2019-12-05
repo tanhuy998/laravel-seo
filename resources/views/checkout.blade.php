@@ -145,22 +145,10 @@
 
                                         </div>
                                         <script>
-                                                    if (document.getElementById('payment_method_paypal').checked) {
-                                                        document.getElementById('paypal_button').style.visibility = 'visible';
-                                                    }
-                                                    else {
-                                                        document.getElementById('paypal_button').style.visibility = 'hidden';
-                                                    }
-
-                                                    if (document.getElementById('payment_method_cheque').checked) {
-                                                        document.getElementById('cheque_button').style.visibility = 'visible';
-                                                    }
-                                                    else {
-                                                        document.getElementById('cheque_button').style.visibility = 'hidden';
-                                                    }
-
+                                                    
+                                                    RadioButtonCheck();
                                                     function RadioButtonCheck() {
-                                                        if (document.getElementById('payment_method_paypal').checked) {
+                                                        if (document.getElementById('payment_method_paypal').checked && InputStatus() == true) {
                                                             document.getElementById('paypal_button').style.visibility = 'visible';
                                                         }
                                                         else {

@@ -59,6 +59,7 @@ function GetCookieValue(cname) {
 //function that update for the hole current document 
 function Update() {
     RenderCartNotification();
+
 }
 
 function RenderCart() {
@@ -77,18 +78,28 @@ function RenderCartNotification() {
 
 function GetCart() {
     let cart = GetCookieValue('cart');
+    if (cart != null) {
+        let cart_list = JSON.parse(cart);
 
-    let cart_list = JSON.parse(cart);
+        if (cart_list.length > 0) {
+            let total_products = 0;
     
-    let total_products = 0;
-    
-    for (let i = 0; i < cart_list.length; ++i) {
-        total_products += cart_list[i].qty;
+            for (let i = 0; i < cart_list.length; ++i) {
+                total_products += cart_list[i].qty;
+            }
+
+            cart_list.count = total_products;
+            
+            return cart_list;
+        }
+        else {
+            DeleteCookie('cart');
+            console.log(1);
+            return null;
+        }
+        
     }
-
-    cart_list.count = total_products;
-
-    return cart_list;
+    return null;
 }
 
 function GetCartProduct(_id) {
@@ -228,7 +239,7 @@ function InputStatus() {
     if (document.getElementById('billing_address_1').value != '') return false;
     if (document.getElementById('billing_phone').value != '') return false;
     if (document.getElementById('billing_last_name').value != '') return false;
-    if (!document.getElementById('payment_method_cheque').checked) return false;
+    //if (!document.getElementById('payment_method_cheque').checked) return false;
 
     return true;
 }

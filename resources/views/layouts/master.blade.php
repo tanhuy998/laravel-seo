@@ -12,7 +12,14 @@
     <meta property="og:description"   content="Giao Hàng Nhanh Miễn Phí ✓ Bảo Hành 365 Ngày ✓ 7 Ngày Đổi Hàng Miễn Phí. Mua Online Giá Rẻ Bất Ngờ." />
     <meta property="og:image"         content="" />
 
+    @if ($page == 6)
+    <meta name="description" content="RSS ( viết tắt từ Really Simple Syndication ) là một tiêu chuẩn định dạng tài liệu dựa trên XML nhằm giúp người sử dụng dễ dàng cập nhật và tra cứu thông tin một cách nhanh chóng và thuận tiện nhất bằng cách tóm lược thông tin vào trong một đoạn dữ liệu ngắn gọn, hợp chuẩn.
+
+Dữ liệu này được các chương trình đọc tin chuyên biệt ( gọi là News reader) phân tích và hiển thị trên máy tính của người sử dụng. Trên trình đọc tin này, người sử dụng có thể thấy những tin chính mới nhất, tiêu đề, tóm tắt và cả đường link để xem toàn bộ tin." />
+    @else 
     <meta name="description" content="Giao Hàng Nhanh Miễn Phí ✓ Bảo Hành 365 Ngày ✓ 7 Ngày Đổi Hàng Miễn Phí. Mua Online Giá Rẻ Bất Ngờ." />
+    @endif
+    
     <meta name="robots" content="notranslate">
 
     <meta name="geo.region" content="VN" />
@@ -37,6 +44,9 @@
     <link rel="stylesheet" href="{{ asset('/resources/css/style.css')}}">
     <link rel="stylesheet" href="{{ asset('/resources/css/responsive.css')}}">
     <link rel="stylesheet" href="{{ asset('/resources/css/dropstyle.css') }}">
+    <link rel="stylesheet" href="{{ asset('/resources/css/rss.css') }}">
+    <link rel="stylesheet" href="{{ asset('/resources/css/owl.carousel.css') }}">
+
     <script type="text/javascript" src="{{ asset('/resources/js/lib.js') }}"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -61,7 +71,7 @@
   </head>
   <body onload="Update()">
    
-    <div class="header-area">
+    <!-- <div class="header-area">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
@@ -75,14 +85,14 @@
             
             </div>
         </div>
-    </div> <!-- End header area -->
+    </div> End header area -->
     
     <div class="site-branding-area">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
                     <div class="logo">
-                        <h1><a href="index.html">e<span>Electronics</span></a></h1>
+                        <h1><a href="index.html">e<span>Fashion</span></a></h1>
                     </div>
                 </div>
                 
@@ -148,7 +158,7 @@
             <div class="row">
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-about-us">
-                        <h2>e<span>Electronics</span></h2>
+                        <h2>e<span>Fashion</span></h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis sunt id doloribus vero quam laborum quas alias dolores blanditiis iusto consequatur, modi aliquid eveniet eligendi iure eaque ipsam iste, pariatur omnis sint! Suscipit, debitis, quisquam. Laborum commodi veritatis magni at?</p>
                         <div class="footer-social">
                             <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
@@ -207,7 +217,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="copyright">
-                        <p>&copy; 2015 eElectronics. All Rights Reserved. Coded with <i class="fa fa-heart"></i> by <a href="http://wpexpand.com" target="_blank">WP Expand</a></p>
+                        <p>&copy; 2015 eFashion. All Rights Reserved. Coded with <i class="fa fa-heart"></i> by <a href="http://wpexpand.com" target="_blank">WP Expand</a></p>
                     </div>
                 </div>
                 

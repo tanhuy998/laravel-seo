@@ -94,32 +94,32 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="single-promo">
                         <i class="fa fa-refresh"></i>
-                        <p>30 Days return</p>
+                        <p>30 Ngày đổi trả</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div class="single-promo">
                         <i class="fa fa-truck"></i>
-                        <p>Free shipping</p>
+                        <p>Miễn phí giao hàng</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div class="single-promo">
                         <i class="fa fa-lock"></i>
-                        <p>Secure payments</p>
+                        <p>Thanh toán an toàn</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div class="single-promo">
                         <i class="fa fa-gift"></i>
-                        <p>New products</p>
+                        <p>Mẫu mã mới</pi>
                     </div>
                 </div>
             </div>
         </div>
     </div> <!-- End promo area -->
     
-    <div class="maincontent-area">
+    <!-- <div class="maincontent-area">
         <div class="zigzag-bottom"></div>
         <div class="container">
             <div class="row">
@@ -221,7 +221,7 @@
                 </div>
             </div>
         </div>
-    </div> <!-- End main content area -->
+    </div> End main content area -->
     
      <!-- End brands area -->
     

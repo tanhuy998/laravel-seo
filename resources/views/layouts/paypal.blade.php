@@ -13,14 +13,20 @@
             return actions.order.create({
                 purchase_units: [{
                     amount: {
-                        value: '1',
+                        value: '{{ $total }}',
                     }
                 }]
             });
         },
         onApprove: function(data, actions) {
             return actions.order.capture().then(function(details) {
-                alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                alert('Transaction completed by ' + details.payer.name.given_name);
+
+                // Call your server to save the transaction
+                // Seft-build function to submit all data about the transaction to server
+                // placed at public/resources/js/lib.js
+                SubmitInput();
+
             });
         }
     }).render('#paypal-button-container');
