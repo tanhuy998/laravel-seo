@@ -19,9 +19,7 @@ Route::get('/product/{id}', 'SingleProductController@Render')->name('product');
 
 Route::get('/checkout', 'CheckoutController@MiddleCheck')->name('checkout'); 
 
-Route::get('/search/{name}', function ($name) {
-    return $name;
-})->name('search');
+Route::get('/search/{name}', 'SearchController@Render')->name('search');
 
 Route::get('/cart', 'CartController@Render')->name('cart');
 

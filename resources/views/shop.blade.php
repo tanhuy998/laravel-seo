@@ -43,7 +43,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="product-pagination text-center">
+                    @if ($page != 10) 
                     {{ $products->links() }}
+                    @endif
                         <!-- <nav>
                           <ul class="pagination">
                             <li>

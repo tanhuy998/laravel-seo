@@ -2,11 +2,11 @@
                     <div class="single-sidebar">
                         <h2 class="sidebar-title">Tìm Kiếm Sản Phẩm </h2>
                             <input type="text" id="myInput" placeholder="Tìm kiếm sản phẩm">
-                            <input type="submit" onclick="SearchProducts()" value="Tìm kiếm">
+                            <input type="button" onclick="SearchProduct(document.getElementById('myInput').value)" value="Tìm kiếm">
                         
                     </div>
                     
-                    <div class="single-sidebar">
+                    <!-- <div class="single-sidebar">
                         <h2 class="sidebar-title">Các sản phẩm</h2>
                         
                         <div class="thubmnail-recent">
@@ -61,7 +61,7 @@
                             <li><a href="5.html">Áo lụa với cà vạt cổ GUCCI</a></li>
                             <li><a href="6.html">Áo sơ mi tay dài</a></li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
                 
                 

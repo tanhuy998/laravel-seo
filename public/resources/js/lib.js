@@ -291,6 +291,7 @@ function PrintCheckout() {
     document.getElementById("#total").innerHTML = totalWithShip;
 }
 
+
 function CartTotal() {
     
     let cartValue = GetCookieValue("carttotal").split("-");
@@ -370,20 +371,10 @@ toggle between hiding and showing the dropdown content */
 
 // Close the dropdown if the user clicks outside of it
 
-function SearchProducts() {
+function SearchProduct(name) {
+    let domain = GetFQDN();
 
-    let input, filter, ul, li, a, i;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("myUL");
-    li = ul.getElementsByClassName("search");
-    console.log("search");
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
-        }
-    }
+    let slug =  name.replace(/ +/g, '-');
+
+    document.location.href = domain + '/search/' + name;
 }

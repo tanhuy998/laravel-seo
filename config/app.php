@@ -174,6 +174,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        //App\Providers\SearchProductServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         //  Collective\Html\HtmlServiceProvider::class,
 
