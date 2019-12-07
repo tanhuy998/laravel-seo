@@ -29,10 +29,10 @@
                                     <div class="row">
                                         <div class="col-md-6 col-md-offset-6">
                                             <div class="slide-content">
-                                                <h2>We are awesome</h2>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, dolorem, excepturi. Dolore aliquam quibusdam ut quae iure vero exercitationem ratione!</p>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi ab molestiae minus reiciendis! Pariatur ab rerum, sapiente ex nostrum laudantium.</p>
-                                                <a href="" class="readmore">Learn more</a>
+                                                <!-- <h2>We are awesome</h2> -->
+                                                <p>Thương hiệu với phương châm phong cách cùng chất lượng hy vọng sẽ làm hài lòng những vị khách khó tính nhất.</p>
+                                                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi ab molestiae minus reiciendis! Pariatur ab rerum, sapiente ex nostrum laudantium.</p> -->
+                                                <!-- <a href="" class="readmore">Learn more</a> -->
                                             </div>
                                         </div>
                                     </div>
@@ -50,9 +50,9 @@
                                     <div class="row">
                                         <div class="col-md-6 col-md-offset-6">
                                             <div class="slide-content">
-                                                <h2>We are great</h2>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe aspernatur, dolorum harum molestias tempora deserunt voluptas possimus quos eveniet, vitae voluptatem accusantium atque deleniti inventore. Enim quam placeat expedita! Quibusdam!</p>
-                                                <a href="" class="readmore">Learn more</a>
+                                                <!-- <h2>We are great</h2> -->
+                                                <p>thương hiệu hướng đến các bạn trẻ năng động. Ngoài ra, với mong muốn khẳng định mình chúng tôi cũng cố gắng mang đến kh nhiều thiết kế độc đáo.</p>
+                                                <!-- <a href="" class="readmore">Learn more</a> -->
                                             </div>
                                         </div>
                                     </div>
@@ -61,7 +61,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="item">
+                <!-- <div class="item">
                     <div class="single-slide">
                         <div class="slide-bg slide-three"></div>
                         <div class="slide-text-wrapper">
@@ -81,7 +81,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
 
         </div>        
@@ -94,7 +94,7 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="single-promo">
                         <i class="fa fa-refresh"></i>
-                        <p>30 Ngày đổi trả</p>
+                        <p>3 Ngày đổi trả</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">

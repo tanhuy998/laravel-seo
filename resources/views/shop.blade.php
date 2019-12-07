@@ -33,7 +33,7 @@
                         </div>  
                         
                         <div class="product-option-shop">
-                            <a class="add_to_cart_button" onclick="AddProduct({{ $product->id }}, 1)" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow">Add to cart</a>
+                            <a class="add_to_cart_button" onclick="AddProduct({{ $product->id }}, 1)" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow">Thêm vào giỏ</a>
                         </div>                       
                     </div>
                 </div>

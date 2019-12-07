@@ -24,12 +24,12 @@
                                         <img src="{{ asset('resources/img/'. (($product->images->first())? $product->images->first()->path : '' )) }}" alt={{ $product->slug }}>
                                     </div>
                                     
-                                    <div class="product-gallery">
+                                    <!-- <div class="product-gallery">
                                         <img src="img/ao3.1.jpg" alt="">
                                         <img src="img/ao3.2.jpg" alt="">
                                         <img src="img/ao3.3.jpg" alt="">
                                         <img src="img/ao3.4.jpg" alt="">
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             
@@ -37,14 +37,14 @@
                                 <div class="product-inner">
                                     <h2 class="product-name">{{ $product->name }}</h2>
                                     <div class="product-inner-price">
-                                        <ins>{{ $product->price }}</ins>
+                                        <ins>{{ $product->price }}</ins> <span>$</span>
                                     </div>    
                                     
                                     <form action="" class="cart">
                                         <div class="quantity">
                                             <input id="#quantity" type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
                                         </div>
-                                        <button onclick="AddProduct({{ $product->id }},GetQuantity('#quantity'))" class="add_to_cart_button" type="button">Add to cart</button>
+                                        <button onclick="AddProduct({{ $product->id }},GetQuantity('#quantity'))" class="add_to_cart_button" type="button">Thêm vào giỏ</button>
                                         
                                     </form>  
 
@@ -57,8 +57,8 @@
 
                                     <div role="tabpanel">
                                         <ul class="product-tab" role="tablist">
-                                            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
-                                            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Reviews</a></li>
+                                            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Mô tả</a></li>
+                                            <!-- <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Reviews</a></li> -->
                                         </ul>
                                         <div class="tab-content">
                                             <div role="tabpanel" class="tab-pane fade in active" id="home">
@@ -67,7 +67,7 @@
 
                                                 
                                             </div>
-                                            <div role="tabpanel" class="tab-pane fade" id="profile">
+                                            <!-- <div role="tabpanel" class="tab-pane fade" id="profile">
                                                 <h2>Reviews</h2>
                                                 <div class="submit-review">
                                                     <p><label for="name">Name</label> <input name="name" type="text"></p>
@@ -86,7 +86,7 @@
                                                     <p><label for="review">Your review</label> <textarea name="review" id="" cols="30" rows="10"></textarea></p>
                                                     <p><input type="submit" value="Submit"></p>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                     

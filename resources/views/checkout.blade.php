@@ -41,16 +41,16 @@
                                             </p> -->
 
                                             <p id="billing_last_name_field" class="form-row form-row-last validate-required">
-                                                <label class="" for="billing_last_name">Họ và tên<abbr title="required" class="required">*</abbr>
+                                                <label class="" for="billing_last_name">Họ và tên<abbr title="required"  class="required">*</abbr>
                                                 </label>
-                                                <input type="text" value="" placeholder="" id="billing_last_name" name="name" class="input-text ">
+                                                <input type="text" value="" placeholder="" id="billing_last_name" onchange="RadioButtonCheck(true)" name="name" class="input-text ">
                                             </p>
                                             <div class="clear"></div>
 
                                             <p id="billing_address_1_field" class="form-row form-row-wide address-field validate-required">
                                                 <label class="" for="billing_address_1">Địa chỉ <abbr title="required" class="required">*</abbr>
                                                 </label>
-                                                <input type="text" value="" placeholder="Street address" id="billing_address_1" name="address" class="input-text ">
+                                                <input type="text" value="" onchange="RadioButtonCheck(true)" placeholder="Street address" id="billing_address_1" name="address" class="input-text ">
                                             </p>
 
                                             <div class="clear"></div>
@@ -58,12 +58,12 @@
                                             <p id="billing_phone_field" class="form-row form-row-last validate-required validate-phone">
                                                 <label class="" for="billing_phone">Số điện thoại <abbr title="required" class="required">*</abbr>
                                                 </label>
-                                                <input type="text" value="" placeholder="" id="billing_phone" name="phone" class="input-text ">
+                                                <input type="text" value="" onchange="RadioButtonCheck(true)" placeholder="" id="billing_phone" name="phone" class="input-text ">
                                             </p>
 
                                             <p id="order_comments_field" class="form-row notes">
                                                 <label class="" for="order_comments">Ghi chú</label>
-                                                <textarea cols="5" rows="2" placeholder="Notes about your order, e.g. special notes for delivery." id="order_comments" class="input-text " name="comments"></textarea>
+                                                <textarea cols="5" rows="2" onchange="RadioButtonCheck(true)" placeholder="Notes about your order, e.g. special notes for delivery." id="order_comments" class="input-text " name="comments"></textarea>
                                             </p>
 
                                             <div class="clear"></div>
@@ -119,7 +119,7 @@
                                     <div id="payment">
                                         <ul class="payment_methods methods">
                                             <li class="payment_method_cheque">
-                                                <input type="radio" onclick="RadioButtonCheck()" data-order_button_text="" value="cheque" name="payment_method" class="input-radio" id="payment_method_cheque" onclick="RadioButtonCheck()">
+                                                <input type="radio" onclick="RadioButtonCheck()" data-order_button_text="" value="cheque" name="payment_method" class="input-radio" id="payment_method_cheque" ">
                                                 <label for="payment_method_cheque">Cheque Payment </label>
                                                 <div style="display:none;" class="payment_box payment_method_cheque">
                                                     <p>Please send your cheque to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
@@ -140,26 +140,33 @@
 
                                         <div id="cheque_button" class="form-row place-order">
 
-                                            <input type="button" onclick="SubmitInput()" data-value="Place order" value="Đặt hàng" id="place_order" name="woocommerce_checkout_place_order" class="button alt">
+                                            <input type="button" onclick="document.forms['checkout'].submit();" data-value="Place order" value="Đặt hàng" id="place_order" name="woocommerce_checkout_place_order" class="button alt">
 
 
                                         </div>
                                         <script>
                                                     
-                                                    RadioButtonCheck();
-                                                    function RadioButtonCheck() {
+                                                    RadioButtonCheck(true);
+                                                    function RadioButtonCheck(stat = false) {
                                                         if (document.getElementById('payment_method_paypal').checked && InputStatus() == true) {
                                                             document.getElementById('paypal_button').style.visibility = 'visible';
                                                         }
                                                         else {
                                                             document.getElementById('paypal_button').style.visibility = 'hidden';
+                                                            if (stat == false) {
+                                                                alert('vui lòng nhập đầy đủ thông tin!');
+                                                            }
+                                                            
                                                         }
 
-                                                        if (document.getElementById('payment_method_cheque').checked) {
+                                                        if (document.getElementById('payment_method_cheque').checked && InputStatus() == true) {
                                                             document.getElementById('cheque_button').style.visibility = 'visible';
                                                         }
                                                         else {
                                                             document.getElementById('cheque_button').style.visibility = 'hidden';
+                                                            if (stat == false) {
+                                                                alert('vui lòng nhập đầy đủ thông tin!');
+                                                            }
                                                         }
                                                     }
                                                 </script>

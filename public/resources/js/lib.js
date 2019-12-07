@@ -235,21 +235,20 @@ function SetShopingCart() {
 }
 
 function InputStatus() {
-    if (document.getElementById('billing_last_name').value != '') return false;
-    if (document.getElementById('billing_address_1').value != '') return false;
-    if (document.getElementById('billing_phone').value != '') return false;
-    if (document.getElementById('billing_last_name').value != '') return false;
+    if (document.getElementById('billing_last_name').value == '') return false;
+    if (document.getElementById('billing_address_1').value == '') return false;
+    if (document.getElementById('billing_phone').value == '') return false;
+    //if (document.getElementById('billing_last_name').value == '') return false;
     //if (!document.getElementById('payment_method_cheque').checked) return false;
 
     return true;
 }
 
-function SubmitInput() {
-    if (InputStatus() == true) {
+function ButtonCheck() {
+    if (InputStatus() != true) {
+        alert('vui lòng nhập đầy đủ thông tin!');
         return false;
     }
-
-    document.forms['checkout'].submit();
 }
 
 function PrintCheckout() {

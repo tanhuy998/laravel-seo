@@ -6,21 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="domain" content="{{ route('home') }}">
 
-    <meta property="og:url"                    content="{{route('home')}}"/>
+    <meta property="og:url"                    content="{{ url()->current() }}"/>
     <meta property="og:type"                   content="website"/>
     <meta property="og:title"         content="eFashion - Thời trang" />
-    <meta property="og:description"   content="Giao Hàng Nhanh Miễn Phí ✓ Bảo Hành 365 Ngày ✓ 7 Ngày Đổi Hàng Miễn Phí. Mua Online Giá Rẻ Bất Ngờ." />
-    <meta property="og:image"         content="" />
+    <meta property="og:description"   content="Du nhập vào thị trường Việt Nam vào năm 2019 thương hiệu hướng đến các bạn trẻ năng động. Ngoài ra, với mong muốn khẳng định mình chúng tôi cũng cố gắng mang đến kh nhiều thiết kế độc đáo. Thương hiệu với phương châm phong cách cùng chất lượng hy vọng sẽ làm hài lòng những vị khách khó tính nhất." />
+    <meta property="og:image"         content="{{ asset('resources/img/logo.jpg') }}" />
 
     @if ($page == 6)
     <meta name="description" content="RSS ( viết tắt từ Really Simple Syndication ) là một tiêu chuẩn định dạng tài liệu dựa trên XML nhằm giúp người sử dụng dễ dàng cập nhật và tra cứu thông tin một cách nhanh chóng và thuận tiện nhất bằng cách tóm lược thông tin vào trong một đoạn dữ liệu ngắn gọn, hợp chuẩn.
 
 Dữ liệu này được các chương trình đọc tin chuyên biệt ( gọi là News reader) phân tích và hiển thị trên máy tính của người sử dụng. Trên trình đọc tin này, người sử dụng có thể thấy những tin chính mới nhất, tiêu đề, tóm tắt và cả đường link để xem toàn bộ tin." />
     @else 
-    <meta name="description" content="Giao Hàng Nhanh Miễn Phí ✓ Bảo Hành 365 Ngày ✓ 7 Ngày Đổi Hàng Miễn Phí. Mua Online Giá Rẻ Bất Ngờ." />
+    <meta name="description" content="Du nhập vào thị trường Việt Nam vào năm 2019 thương hiệu hướng đến các bạn trẻ năng động. Ngoài ra, với mong muốn khẳng định mình chúng tôi cũng cố gắng mang đến kh nhiều thiết kế độc đáo. Thương hiệu với phương châm phong cách cùng chất lượng hy vọng sẽ làm hài lòng những vị khách khó tính nhất." />
     @endif
-    
+    <meta name="copyright" content="eFashion">
+    <meta name="author" content="eFashion">
     <meta name="robots" content="notranslate">
+
+    <meta name="twitter:url" content="{{ url()->current() }}">
+    <meta name="twitter:description" content="Du nhập vào thị trường Việt Nam vào năm 2019 thương hiệu hướng đến các bạn trẻ năng động. Ngoài ra, với mong muốn khẳng định mình chúng tôi cũng cố gắng mang đến kh nhiều thiết kế độc đáo. Thương hiệu với phương châm phong cách cùng chất lượng hy vọng sẽ làm hài lòng những vị khách khó tính nhất.">   
+    <meta name="twitter:site" content="@eFashion">
+    <meta name="twitter:creator" content="@eFashion">
+    <meta name="twitter:image" content="{{ asset('resources/img/logo.jpg') }}">
 
     <meta name="geo.region" content="VN" />
     <meta name="geo.placename" content="Ward 3" />
@@ -133,7 +140,7 @@ Dữ liệu này được các chương trình đọc tin chuyên biệt ( gọi
                         <li {{ ($page == 4)? 'class=active': '' }}><a href="{{ route('checkout') }}">Thanh toán</a></li>
                         <!-- <li><a href="#">Category</a></li> -->
                         <!-- <li><a href="#">Others</a></li> -->
-                        <li>
+                        <!-- <li>
                             <div class="dropdown">
                                 <button class="dropbtn">LIÊN HỆ</button>
                                 <div class="dropdown-content">
@@ -142,7 +149,7 @@ Dữ liệu này được các chương trình đọc tin chuyên biệt ( gọi
                                     <a href="#">Địa chỉ shop</a>
                                 </div>
                             </div>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>  
             </div>
@@ -159,18 +166,18 @@ Dữ liệu này được các chương trình đọc tin chuyên biệt ( gọi
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-about-us">
                         <h2>e<span>Fashion</span></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis sunt id doloribus vero quam laborum quas alias dolores blanditiis iusto consequatur, modi aliquid eveniet eligendi iure eaque ipsam iste, pariatur omnis sint! Suscipit, debitis, quisquam. Laborum commodi veritatis magni at?</p>
-                        <div class="footer-social">
+                        <p>Du nhập vào thị trường Việt Nam vào năm 2019 thương hiệu hướng đến các bạn trẻ năng động. Ngoài ra, với mong muốn khẳng định mình chúng tôi cũng cố gắng mang đến kh nhiều thiết kế độc đáo. Thương hiệu với phương châm phong cách cùng chất lượng hy vọng sẽ làm hài lòng những vị khách khó tính nhất.</p>
+                        <!-- <div class="footer-social">
                             <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
                             <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
                             <a href="#" target="_blank"><i class="fa fa-youtube"></i></a>
                             <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
                             <a href="#" target="_blank"><i class="fa fa-pinterest"></i></a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 
-                <div class="col-md-3 col-sm-6">
+                <!-- <div class="col-md-3 col-sm-6">
                     <div class="footer-menu">
                         <h2 class="footer-wid-title">User Navigation </h2>
                         <ul>
@@ -194,9 +201,9 @@ Dữ liệu này được các chương trình đọc tin chuyên biệt ( gọi
                             <li><a href="#">Gadets</a></li>
                         </ul>                        
                     </div>
-                </div>
+                </div> -->
                 
-                <div class="col-md-3 col-sm-6">
+                <!-- <div class="col-md-3 col-sm-6">
                     <div class="footer-newsletter">
                         <h2 class="footer-wid-title">Newsletter</h2>
                         <p>Sign up to our newsletter and get exclusive deals you wont find anywhere else straight to your inbox!</p>
@@ -207,7 +214,7 @@ Dữ liệu này được các chương trình đọc tin chuyên biệt ( gọi
                             </form>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div> <!-- End footer top area -->
@@ -220,6 +227,8 @@ Dữ liệu này được các chương trình đọc tin chuyên biệt ( gọi
                         <p>&copy; 2015 eFashion. All Rights Reserved. Coded with <i class="fa fa-heart"></i> by <a href="http://wpexpand.com" target="_blank">WP Expand</a></p>
                     </div>
                 </div>
+
+                @include('layouts.shareButton')
                 
                 <div class="col-md-4">
                     <div class="footer-card-icon">

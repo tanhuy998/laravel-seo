@@ -58,7 +58,7 @@
                                             </td>
                                             
                                             <td class="product-price">
-                                                <span class="amount">{{ $product->price }} VNĐ</span>
+                                                <span class="amount">{{ $product->price }} $</span>
                                             </td>
     
                                             <td class="product-quantity">
