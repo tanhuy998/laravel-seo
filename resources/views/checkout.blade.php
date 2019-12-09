@@ -1,4 +1,4 @@
-@extends('layouts\master')
+@extends('layouts.master')
 
 @section('content')
 
@@ -19,7 +19,7 @@
         <div class="zigzag-bottom"></div>
         <div class="container">
             <div class="row">
-                @include('layouts\leftSideBar')
+                @include('layouts.leftSideBar')
                 
                 <div class="col-md-8">
                     <div class="product-content-right">
@@ -133,7 +133,7 @@
                                                     <p>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
                                                 </div>
                                                 <div id="paypal_button" style="visibility: hidden;">
-                                                    @include('layouts\paypal')
+                                                    @include('layouts.paypal')
                                                 </div>
                                             </li>
                                         </ul>

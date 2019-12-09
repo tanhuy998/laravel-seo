@@ -19,7 +19,7 @@
         <div class="zigzag-bottom"></div>
         <div class="container">
             <div class="row">
-                @include('layouts\leftSideBar')
+                @include('layouts.leftSideBar')
 
                 @foreach ($products as $product) 
                 <div class="col-md-3 col-sm-6">

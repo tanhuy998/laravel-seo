@@ -8,7 +8,7 @@
     <div class="zigzag-bottom"></div>
         <div class="container">
             <div class="row">
-            @include('layouts\leftSideBar')
+            @include('layouts.leftSideBar')
                 <div class="col-md-8">
                     <div class="product-content-right">
                         <!-- <div class="product-breadcroumb">
