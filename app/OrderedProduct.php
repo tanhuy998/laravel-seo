@@ -8,8 +8,6 @@ use App;
 class OrderedProduct extends Model
 {
     //
-    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
-    
     protected $table = 'ordered_products';
 
     public function Order() {

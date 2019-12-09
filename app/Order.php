@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     //
-    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
-
     public function Products() {
         return $this->belongsToMany('App\Product','ordered_products','order_id','product_id');
     }

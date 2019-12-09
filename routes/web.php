@@ -31,6 +31,9 @@ Route::get('/about', function() {
     return view('master');
 })->name('about');
 
+Route::get('/admin', function() {
+
+})->name('admin');
 
 Route::get('/rss', 'RSSController@RenderView')->name('rss-view');
 

@@ -8,8 +8,6 @@ use App;
 class PaymentMethod extends Model
 {
     //
-    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
-
     protected $table = 'payment_methods';
 
     public function Payments() {
