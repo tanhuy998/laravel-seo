@@ -8,4 +8,8 @@ class Image extends Model
 {
     //
     protected $table = 'product_images';
+
+    public function Product() {
+        return $this->belongsTo('App\Product');
+    }
 }
